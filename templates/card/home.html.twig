@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+
+    <h1>Card Game</h1>
+    <p>Nedan finns länkar som tar användaren till diverse sidor.</p>
+
+    <ol class="link-container">
+        <li><a href="{{ path('session_debug') }}">Session</a></li>
+        <li><a href="{{ path('show_deck') }}">Show deck</a></li>
+        <li><a href="{{ path('shuffle') }}">Shuffle</a></li>
+        <li><a href="{{ path('card_deck_draw') }}">Draw a card</a></li>  
+    </ol>
+</div>
+
+
+
+
+{% endblock %}

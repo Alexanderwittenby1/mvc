@@ -1,0 +1,242 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+body {
+    background: url('../images/mvc.png');
+    background-size: cover;
+    margin-bottom: 60px;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+header {
+    height: 200px;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+
+
+
+main {
+    margin: 0 auto;
+    max-width:500px;
+    padding: 40px;
+}
+
+.site-nav {
+    display: flex;
+    list-style-type: none; 
+    justify-content: center;
+    padding-top: 200px;
+    /* margin: 0;
+    margin-right: 50px;
+    margin-left: 10px; */
+
+}
+
+.site-nav a {
+    text-decoration: none; /* Ta bort understrykning från länkarna */
+    color: #000000; /* Ange textfärgen för länkarna */
+    font-weight: bold; /* Göra länktexten fetstil */
+    font-size: 16px; /* Ange textstorlek för länkarna */
+    transition: color 0.3s; /* Gör övergången av textfärgen smidig */
+}
+.site-nav a:hover {
+    color: #ffa500; /* Ändra textfärgen när man hoverar över länkarna */
+}
+
+.site-nav li {
+    display: inline; /* Visa länkarna bredvid varandra */
+    margin-right: 20px; /* Lägg till lite mellanrum mellan länkarna */
+}
+
+
+@keyframes blink-animation {
+    0% { color: red; } /* Vid 0% är texten röd */
+    25% { color: blue; } /* Vid 25% är texten blå */
+    50% { color: green; } /* Vid 50% är texten grön */
+    75% { color: orange; } /* Vid 75% är texten orange */
+    100% { color: purple; } /* Vid 100% är texten lila */
+}
+
+
+.blink {
+    animation: blink-animation 1s infinite ease-in; 
+}
+
+
+.site-footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    padding: 0 20px;
+    width: 100%;
+    flex-direction: row-reverse;
+    min-height: 60px;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+.footer-section {
+    flex: 1;
+}
+.social-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links li a {
+    color: #fff;
+    font-size: 20px;
+}
+
+/**
+* Kmom02
+**/
+
+/* body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #eee;
+    font-size: 2em;
+} */
+
+input {
+    font-size: 1em;
+}
+
+h1 {
+    border-bottom: 4px double green;
+}
+
+.die {
+    font-size: 3em;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.flash-warning:before {
+    content: "⚠";
+}
+
+.picture-about{
+    margin:auto;
+    
+    width: 300px;
+}
+
+
+
+.about-div{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 100px;
+
+}
+
+.side-right{
+    justify-self: right;
+}
+
+.side-left {
+    justify-self: left;
+}
+
+/* .card-ul {
+    padding-top: 10rem;
+} */
+
+/* .card-container {
+    display: flex;
+    border: 2px solid black;
+} */
+
+ol {
+    position: relative;
+    box-sizing: border-box;
+}
+ol li {
+    display: flex;
+    background: rgba(255, 255, 255, .1);
+    padding: 10px 20px;
+    background-color:#333;
+    margin: 5px 0;
+    transition: .5s;
+}
+
+/* ol li:hover {
+    background:rgba(13, 3, 3, 0) ;
+} */
+
+ol a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn {
+    background: rgba(255, 255, 255, .1);
+    padding: 10px 20px;
+    background-color:#333;
+    margin: 5px 0;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card-ul li{
+    
+    padding-top: 5px;
+    /* padding-bottom: 5px; */
+    list-style: none;
+}
+
+.card-ul {
+    background: #ccc ;
+    
+}
+

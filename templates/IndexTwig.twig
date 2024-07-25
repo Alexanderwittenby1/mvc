@@ -1,0 +1,28 @@
+{# templates/lucky_number.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}OM{% endblock %}
+
+{% block body %}
+    <h1>Om mig</h1>
+    <div class="about-me">
+        <a href="{{ asset('img/hemsidabild.jpg') }}"> 
+            <img src="{{ asset('img/hemsidabild.jpg') }}" alt="" class="picture-about">
+        </a>
+    </div>
+    <div>
+        <p>Hej, mitt namn är Alexander, och jag är 27 år gammal.
+        Ursprungligen kommer jag från den vackra staden Karlskrona.
+        För närvarande befinner jag mig i en spännande fas av mitt liv då jag studerar webbprogrammering vid BTH, Blekinge Tekniska Högskola, här i Karlskrona.
+        </p>
+        <h3>Mina intressen</h3>
+        <p> När jag inte fördjupar mig i koden eller utforskar nya programmeringsspråk,
+        spenderar jag gärna tid med mina två älskade: min underbara hund Majken och min fantastiska sambo Malou.
+        Majken är inte bara en fyrbent vän utan också en livlig följeslagare som älskar långa promenader och äventyr utomhus.
+        Att strosa runt i naturen med henne är en av mina favoritsysselsättningar på fritiden.
+        Förutom att vara ute med Majken, ägnar jag också en del av min tid åt att styrketräning. Att hålla mig aktiv och stark är något som jag värdesätter högt för både kropp och sinne.
+        Utöver utomhusaktiviteter och styrketräning, finner jag även avkoppling i att spela spel.
+        Oavsett om det är att dyka in i en spännande spelvärld ensam eller att utmana vänner i flerspelarlägen, är spel en rolig och underhållande del av mitt liv.</p>
+    </div>
+{% endblock %}
