@@ -44,9 +44,5 @@ class IndexTwig extends AbstractController
         ]);
     }
 
-    #[Route("/lucky", name: "lucky")]
-    public function card(): Response
-    {
-        return $this->render('card.html.twig');
-    }
+
 }

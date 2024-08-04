@@ -2,62 +2,92 @@
 
 namespace App\Controller;
 
+use App\CardGame\Deck;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class DeckController extends AbstractController
 {
-    private const SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-    private const VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-
-    #[Route("/api/deck", name:"api_deck", methods:["GET"])]
-    public function getDeck(SessionInterface $session): JsonResponse
+    #[Route("/card", name: "card_start")]
+    public function home(): Response
     {
-        $deck = $this->initializeDeck();
-        $session->set('deck', $deck);
-        return new JsonResponse($deck);
+        return $this->render('card/home.html.twig');
     }
 
-
-    #[Route("/api/deck/shuffle", name: "shuffle_deck")]
-    public function shuffleDeck(SessionInterface $session): JsonResponse
+    #[Route("/card/deck", name: "show_deck")]
+    public function showDeck(SessionInterface $session): Response
     {
-        $deck = $this->initializeDeck();
-        shuffle($deck);
+        /** @var Deck $deck */
+        $deck = $session->get('deck', new Deck());
         $session->set('deck', $deck);
-        return new JsonResponse($deck);
-    }
 
-
-
-    #[Route("/api/deck/draw/{number}", name: "draw_multiple_cards")]
-    public function drawMultipleCards(SessionInterface $session, int $number): JsonResponse
-    {
-        return $this->drawCards($session, $number);
-    }
-
-    private function drawCards(SessionInterface $session, int $number): JsonResponse
-    {
-        $deck = $session->get('deck', $this->initializeDeck());
-        $drawnCards = array_splice($deck, 0, $number);
-        $session->set('deck', $deck);
-        return new JsonResponse([
-            'drawn_cards' => $drawnCards,
-            'remaining_cards' => count($deck)
+        return $this->render('card/deck.html.twig', [
+            'deck' => $deck->getCards(),
         ]);
     }
 
-
-    private function initializeDeck(): array
+    #[Route("/card/deck/shuffle", name: "shuffle")]
+    public function shuffleCards(SessionInterface $session): Response
     {
-        $deck = [];
-        foreach (self::SUITS as $suit) {
-            foreach (self::VALUES as $value) {
-                $deck[] = ['suit' => $suit, 'value' => $value];
-            }
-        }
-        return $deck;
+        $deck = new Deck();
+        $deck->shuffle();
+
+        $session->set('deck', $deck);
+
+        return $this->render('card/deck.html.twig', [
+            'deck' => $deck->getCards(),
+        ]);
+    }
+
+    #[Route("/card/deck/draw", name: "card_deck_draw")]
+    public function drawCard(SessionInterface $session): Response
+    {
+        /** @var Deck $deck */
+        $deck = $session->get('deck', new Deck());
+        $cards = $deck->draw();
+        $session->set('deck', $deck);
+
+        $remaining = $deck->count();
+
+        return $this->render('card/draw.html.twig', [
+            'cards' => $cards,
+            'remaining' => $remaining
+        ]);
+    }
+
+    #[Route("/card/deck/draw/{number}", name: "draw_cards")]
+    public function drawCards(SessionInterface $session, int $number): Response
+    {
+        /** @var Deck $deck */
+        $deck = $session->get('deck', new Deck());
+        $drawnCards = $deck->draw($number);
+        $session->set('deck', $deck);
+        $remaining = $deck->count();
+
+        return $this->render('card/draw_cards.html.twig', [
+            'drawnCards' => $drawnCards,
+            'remaining' => $remaining,
+        ]);
+    }
+
+    #[Route("/session/delete", name: "session_delete")]
+    public function delete(SessionInterface $session): Response
+    {
+        $session->clear();
+        $this->addFlash(
+            'notice',
+            'Nu är sessionen raderad!'
+        );
+        return $this->redirectToRoute('card_start');
+    }
+
+    #[Route("/session", name: "session_debug")]
+    public function session(SessionInterface $session): Response
+    {
+        return $this->render('card/session.html.twig', [
+            'session_data' => $session->all(),
+        ]);
     }
 }

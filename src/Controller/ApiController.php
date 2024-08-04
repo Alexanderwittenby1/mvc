@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 date_default_timezone_set("Europe/Stockholm");
 class ApiController extends AbstractController
 {
+    /**
+    * @var RouterInterface
+    */
     private $router;
 
 
@@ -102,7 +105,23 @@ class ApiController extends AbstractController
             'test_roll_dice' => 'Tillhör kmom02 kortspel, testar att tärningarna slås.',
             'test_dicehand' => 'Testar att rolla x antal tärningar.',
             'pig_init_get' => 'Initierar ett spel där man får välja antal tärningar.',
-            'pig_init_post' => 'Initierar ett spel där man får välja antal tärningar.'
+            'pig_init_post' => 'Initierar ett spel där man får välja antal tärningar.',
+            'test_roll_num_dices' => 'Testar att tärningarna slås.',
+            'pig_play' => 'Spelsidan för kortspellet Pig.',
+            'pig_save' => 'Sparar spelresultaten i sessionen.',
+            'IndexTwig' => 'Visar en index-sida "Startsida"',
+            'about' => 'Visar en about-sida "Om sidan"',
+            'report' => 'Visar en report-sida "Rapport"',
+            'lucky' => 'Visar en sida med ett random turnummer',
+            'app_lucky_number' => 'Visar ett slumpmässigt turnummer samt en blinkande bild',
+            'card_game' => 'Visar en sida med kortspel',
+            'card_game_info' => 'Visar en sida med kortspelets regler.',
+            'card_game_start' => 'Startar kotspelet.',
+            'draw_card' => 'Drar ett kort från kortleken.',
+            'stand' => 'Spelare står kvar med sina kort.',
+            'new_game' => 'Startar ett nytt spel.',
+
+
 
 
 

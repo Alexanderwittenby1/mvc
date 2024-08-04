@@ -4,6 +4,9 @@ namespace App\CardGame;
 
 class Deck
 {
+    /**
+     * @var Card[]
+     */
     private array $cards = [];
 
     public function __construct()
@@ -16,6 +19,7 @@ class Deck
                 $this->cards[] = new Card($suit, $value);
             }
         }
+        shuffle($this->cards);
     }
 
     public function shuffle(): void
@@ -23,13 +27,22 @@ class Deck
         shuffle($this->cards);
     }
 
-
-
+    /**
+     * Draws the specified number of cards from the deck.
+     *
+     * @param int $number The number of cards to draw.
+     * @return Card[] The drawn cards.
+     */
     public function draw(int $number = 1): array
     {
         return array_splice($this->cards, 0, $number);
     }
 
+    /**
+     * Returns the current cards in the deck.
+     *
+     * @return Card[] The cards in the deck.
+     */
     public function getCards(): array
     {
         return $this->cards;
@@ -45,15 +58,20 @@ class Deck
         return count($this->cards);
     }
 
+    /**
+     * Returns the sorted cards in the deck.
+     *
+     * @return Card[] The sorted cards in the deck.
+     */
     public function getSortedCards(): array
     {
-        usort($this->cards, function (Card $a, Card $b) {
+        usort($this->cards, function (Card $cardA, Card $cardB) {
             $suitOrder = ['♠', '♥', '♦', '♣'];
             $valueOrder = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '♖', '♕', '♔', 'A'];
 
-            $suitComparison = array_search($a->getSuit(), $suitOrder) - array_search($b->getSuit(), $suitOrder);
+            $suitComparison = array_search($cardA->getSuit(), $suitOrder) - array_search($cardB->getSuit(), $suitOrder);
             if ($suitComparison === 0) {
-                return array_search($a->getValue(), $valueOrder) - array_search($b->getValue(), $valueOrder);
+                return array_search($cardA->getValue(), $valueOrder) - array_search($cardB->getValue(), $valueOrder);
             }
             return $suitComparison;
         });
