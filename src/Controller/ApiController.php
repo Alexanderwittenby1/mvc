@@ -120,6 +120,7 @@ class ApiController extends AbstractController
             'draw_card' => 'Drar ett kort från kortleken.',
             'stand' => 'Spelare står kvar med sina kort.',
             'new_game' => 'Startar ett nytt spel.',
+            'app_product' => 'Visar vart Controllern & Templates ligger.',
 
 
 

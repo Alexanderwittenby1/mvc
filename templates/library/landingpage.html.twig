@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block body %}
+
+<div class="container">
+      <h1>Bibliotek</h1>
+      <p>Välkommen till biblioteket! Här kan du läsa om böcker och spel.</p>
+      <button class="btn btn-primary"><a href="{{ path('book_new') }}">Skapa ny bok</a>
+      <button class="btn btn-primary"><a href="{{ path('book_list') }}">Visa alla böcker</a>
+
+</div>
+
+
+
+
+{% endblock %}
