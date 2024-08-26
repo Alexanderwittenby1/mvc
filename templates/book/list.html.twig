@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Boklista</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>ISBN</th>
+                <th>Författare</th>
+                <th>Åtgärder</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>
+                        <a href="{{ path('book_show', {'id': book.id}) }}">Visa</a>
+                        <a href="{{ path('book_edit', {'id': book.id}) }}">Redigera</a>
+                        <form method="post" action="{{ path('book_delete', {'id': book.id}) }}" style="display:inline;">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ book.id) }}">
+                            <button type="submit">Radera</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

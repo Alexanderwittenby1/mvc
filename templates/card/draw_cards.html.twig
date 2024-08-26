@@ -1,0 +1,24 @@
+{# templates/card/draw_cards.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Draw Cards{% endblock %}
+
+{% block body %}
+    <h1>Draw Cards</h1>
+    
+    {% if drawnCards is empty %}
+        <p>No cards drawn.</p>
+    {% else %}
+        <h2>Drawn Cards:</h2>
+        <ul>
+            {% for card in drawnCards %}
+                <li>{{ card }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <p>Remaining cards in deck: {{ remaining }}</p>
+    
+    <a href="{{ path('show_deck') }}">Back to Deck</a>
+{% endblock %}

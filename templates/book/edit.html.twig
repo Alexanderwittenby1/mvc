@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>{{ form.vars.value.id ? 'Redigera bok' : 'Lägg till ny bok' }}</h2>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Spara</button>
+    {{ form_end(form) }}
+{% endblock %}

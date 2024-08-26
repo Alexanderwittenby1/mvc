@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Quotes{% endblock %}
+
+{% block body %}
+    <h1>Quotes</h1>
+    {% for quote in Response %}
+    <p>{{ quote }}</p>
+    {% endfor %}
+{% endblock %}

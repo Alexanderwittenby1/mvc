@@ -1,0 +1,14 @@
+{# templates/lucky_number.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block body %}
+    <h1 class="blink">Lucky Number</h1>
+    <h2>{{ name }}'s lucky number is {{ number }}.</h2>
+    <a href="{{ asset('img/lucky.jpg') }}"> 
+        <img src="{{ asset('img/lucky.jpg') }}" alt="" class="picture-about"> 
+    </a>
+
+{% endblock %}

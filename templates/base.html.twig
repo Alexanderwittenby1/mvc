@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="{{ asset('img/glider.svg') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+    <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+        
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li><a href="{{ path('IndexTwig') }}">Home</a></li>
+            <li><a href="{{ path('report') }}">Report</a></li>
+            <li><a href ="{{ path('about') }}">About</a></li>
+            <li><a href ="{{ path('lucky') }}">Lucky</a></li>
+            <li><a href ="{{ path('api_landing_page') }}">Api Routes</a></li>
+            <li><a href ="{{ path('card_start') }}">Card</a></li>
+            <li><a href ="{{ path('session_debug') }}">Session</a></li>
+            <li><a href ="{{ path('card_game') }}">Game</a></li>
+            <li><a href ="{{path('landingpage') }}">Library</a></li>
+        </ul>
+    </nav>
+    </header>
+
+
+
+    <main>
+    {% block body %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        
+        <div class ="footer-content">
+            <div class="footer-section">
+                <h3>Github</h3>
+                <a href="https://github.com/alexanderwittenby1" class="fab fa-github"></a>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>E-post: alwi22@student.bth.se</p>
+            </div>
+        </div>
+    </footer>
+    
+   
+</body>
+</html>
+

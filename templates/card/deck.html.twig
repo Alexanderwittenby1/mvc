@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Deck{% endblock %}
+
+{% block body %}
+    <h1>Alla kort i kortleken</h1>
+    <ul class="card-ul">
+        {% for card in deck %}
+            {% if card.getSuit() == '♥' or card.getSuit() == '♦' %}
+                <li><span style="color: red;">{{ card }}</span></li>
+            {% else %}
+                <li>{{ card }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <a href="{{ path('show_deck') }}">Visa kortleken igen</a>
+{% endblock %}

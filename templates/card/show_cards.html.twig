@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graphic Dice{% endblock %}
+
+{% block body %}
+    <h1>Grafisk Tärning</h1>
+    <p>Du rullade: {{ card }}</p>
+    <a href="{{ path('dice_graphic') }}">Rulla igen</a>
+{% endblock %}

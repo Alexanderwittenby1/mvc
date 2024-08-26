@@ -1,0 +1,18 @@
+{# templates/api/landing_page.html.twig #}
+{% extends "base.html.twig" %}
+
+{% block title %}API ROUTES{% endblock %}
+
+{% block body %}
+<h1>API ROUTES</h1>
+<ul>
+    {% for route in allRoutes %}
+        <li>
+            Name: {{ route.name }} <br>
+            Path: {{ route.path }} <br>
+            Description: {{route.description}}
+            <br>
+        </li>
+    {% endfor %}
+{% endblock %}
+

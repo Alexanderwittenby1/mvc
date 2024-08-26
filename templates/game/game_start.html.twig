@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}21 (Blackjack) Game{% endblock %}
+
+{% block body %}
+    <div class="game-container">
+        <h1>21 (Blackjack) Game</h1>
+            <div class="player-hand">
+                <h2>Player's Hand</h2>
+                <ul>
+                    {% for card in player_hand %}
+                        <li>{{ card.suit }} {{ card.value }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Player's Score: {{ player_score }}</p>
+            </div>
+
+            <div class="dealer-hand">
+                <h2>Dealer's Hand</h2>
+                <ul>
+                    {% for card in dealer_hand %}
+                        <li>{{ card.suit }} {{ card.value }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Dealer's Score: {{ dealer_score }}</p>
+            </div>
+
+            <div class="actions">
+                <h2>Actions</h2>
+                <form action="{{ path('draw_card') }}" method="post">
+                    <button type="submit">Draw Card</button>
+                </form>
+                <form action="{{ path('stand') }}" method="post">
+                    <button type="submit">Stand</button>
+                </form>
+                {% if game_result %}
+                    <h2>{{ game_result }}</h2>
+                    <form action="{{ path('new_game') }}" method="post">
+                        <button type="submit">Start New Game</button>
+                    </form>
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{# templates/lucky_number.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}OM{% endblock %}
+
+
+{% block body %}
+    <div class="about-div">
+
+
+        <div class="side-left">
+            <h1>Kursen MVC</h1>
+            <p>Kursen MVC handlar om att programmera och lära sig att skapa webapplikationer på ett objektorienterat sätt. Fokuset i kursen kommer ligga på det arkitekturella designmönstret MVC.</p>
+            <p>I kursen kommer vi använda oss utav Ramverket Symfony som är ett populärt ramverk för webbapplikationer. Ramverket är tillgängligt på <a href="https://symfony.com/">https://symfony.com/</a>.</p>
+        </div>
+
+
+        <div class="side-right">
+            <h1>Länkar</h1>
+            <p><a href="https://symfony.com/">Länk till Symfony</a></p>
+            <p><a href="https://github.com/Alexanderwittenby1/mvc">Länk till Github</a></p>
+        </div>
+
+        <div>
+            <a href="{{ asset('img/mvc.png') }}"> 
+                <img src="{{ asset('img/mvc.png') }}" alt="" class="picture-about"> 
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
