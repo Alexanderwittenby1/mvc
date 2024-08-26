@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics Analysis{% endblock %}
+
+{% block body %}
+<div class="container-metrics">
+    <div class="main-content">
+        <div class="improvements">
+            <h1>Förbättringar</h1>
+            <p>
+                Här är några förbättringar jag planerar att göra:
+            </p>
+            <ul>
+                <li><strong>Öka kodtäckning: </strong> Jag planerar att öka kodtäckningen genom att skriva fler tester och förbättra befintliga tester.
+                <li><strong> Typdeklaration: </strong> Jag planerar att lägga till typdeklarationer för att förbättra kodens läsbarhet och förhindra fel.
+                <li><strong>Minska Komplexiteten: </strong> Jag planerar att minska komplexiteten genom att dela upp stora funktioner i mindre delar och undvika komplexa logik.
+            </ul>
+
+            <h2>Innan förbättringar: </h2>
+                <p><strong>kodtäckning:</strong> 21%</p>
+                <p><strong>Kvalitetsindex i Scrutinizer:</strong> 10/10</p>
+                <p><strong>Komplexiteten:</strong> Hög komplexitet i vissa klasser med cyklomatisk komplexitet på 9.</p>
+
+            <h2>Diskussion</h2>
+            <p>
+                Genom att använda verktyg som Phpmetrics och Scrutinizer kan vi aktivt arbeta med att förbättra kodkvaliteten. Det finns många fördelar, inklusive förbättrad läsbarhet, enklare underhåll och bättre prestanda. Nackdelar kan vara tidskrävande förbättringar och behovet av att kontinuerligt uppdatera kodbasen. Att arbeta mot "clean code" är en pågående process som kräver regelbundet underhåll och förbättring.
+            </p>
+        </div>
+            
+    </div>
+    <div class="side-bar">
+            <h2>Phpmetrics</h2>
+            <p>Läs mer om phpmetrics</p>
+            <a href="{{ path('phpmetrics') }}">Phpmetrics</a>
+            
+            <h2>Scrutinizer</h2>
+            <p>Läs mer om Scrutinizer</p>
+            <a href="{{ path('scrutinizer') }}">scrutinizer</a>
+    </div>
+</div>
+{% endblock %}

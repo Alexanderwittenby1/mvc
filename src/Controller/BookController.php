@@ -13,9 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     #[Route('/books', name: 'book_list')]
-    public function list(EntityManagerInterface $em): Response
+    public function list(EntityManagerInterface $emi): Response
     {
-        $books = $em->getRepository(Book::class)->findAll();
+        $books = $emi->getRepository(Book::class)->findAll();
         return $this->render('book/list.html.twig', ['books' => $books]);
     }
 
@@ -27,15 +27,15 @@ class BookController extends AbstractController
 
 
     #[Route('/books/new', name: 'book_new')]
-    public function new(Request $request, EntityManagerInterface $em): Response
+    public function new(Request $request, EntityManagerInterface $emi): Response
     {
         $book = new Book();
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($book);
-            $em->flush();
+            $emi->persist($book);
+            $emi->flush();
 
             return $this->redirectToRoute('book_list');
         }
@@ -46,13 +46,13 @@ class BookController extends AbstractController
     }
 
     #[Route('/book/{id}/edit', name: 'book_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Book $book, EntityManagerInterface $em): Response
+    public function edit(Request $request, Book $book, EntityManagerInterface $emi): Response
     {
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->flush();
+            $emi->flush();
             return $this->redirectToRoute('book_list');
         }
 
@@ -62,12 +62,11 @@ class BookController extends AbstractController
     }
 
     #[Route('/book/{id}/delete', name: 'book_delete', methods: ['POST'])]
-    public function delete(Request $request, Book $book, EntityManagerInterface $em): Response
+    public function delete(Book $book, EntityManagerInterface $emi): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$book->getId(), $request->request->get('_token'))) {
-            $em->remove($book);
-            $em->flush();
-        }
+        $emi->remove($book);
+        $emi->flush();
+
 
         return $this->redirectToRoute('book_list');
     }

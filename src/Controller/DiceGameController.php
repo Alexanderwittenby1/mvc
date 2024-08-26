@@ -71,9 +71,9 @@ class DiceGameController extends AbstractController
         for ($i = 1; $i <= $num; $i++) {
             if ($i % 2 === 1) {
                 $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
             }
+            $hand->add(new Dice());
+
         }
 
         $hand->roll();

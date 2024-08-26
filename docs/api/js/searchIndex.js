@@ -221,10 +221,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_getRouteDescription"
         },                {
+            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AgetBooks\u0028\u0029",
+            "name": "getBooks",
+            "summary": "",
+            "url": "classes/App-Controller-ApiController.html#method_getBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AgetBookByIsbn\u0028\u0029",
+            "name": "getBookByIsbn",
+            "summary": "",
+            "url": "classes/App-Controller-ApiController.html#method_getBookByIsbn"
+        },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003A\u0024router",
             "name": "router",
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#property_router"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiController\u003A\u003A\u0024entityManager",
+            "name": "entityManager",
+            "summary": "",
+            "url": "classes/App-Controller-ApiController.html#property_entityManager"
         },                {
             "fqsen": "\\App\\Controller\\BookController",
             "name": "BookController",
@@ -450,6 +465,26 @@ Search.appendIndex(
             "name": "lucky",
             "summary": "",
             "url": "classes/App-Controller-IndexTwig.html#method_lucky"
+        },                {
+            "fqsen": "\\App\\Controller\\IndexTwig\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-IndexTwig.html#method_metrics"
+        },                {
+            "fqsen": "\\App\\Controller\\IndexTwig\u003A\u003Ascrutinizer\u0028\u0029",
+            "name": "scrutinizer",
+            "summary": "",
+            "url": "classes/App-Controller-IndexTwig.html#method_scrutinizer"
+        },                {
+            "fqsen": "\\App\\Controller\\IndexTwig\u003A\u003Aphpmetrics\u0028\u0029",
+            "name": "phpmetrics",
+            "summary": "",
+            "url": "classes/App-Controller-IndexTwig.html#method_phpmetrics"
+        },                {
+            "fqsen": "\\App\\Controller\\IndexTwig\u003A\u003Aimprovements\u0028\u0029",
+            "name": "improvements",
+            "summary": "",
+            "url": "classes/App-Controller-IndexTwig.html#method_improvements"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController",
             "name": "LibraryController",
@@ -768,7 +803,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue\u0028\u0029",
             "name": "findByMinimumValue",
-            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one.",
+            "summary": "Find\u0020all\u0020products\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one.",
             "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue"
         },                {
             "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue2\u0028\u0029",

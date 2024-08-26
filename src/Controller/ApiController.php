@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Book;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 date_default_timezone_set("Europe/Stockholm");
 class ApiController extends AbstractController
@@ -17,10 +19,17 @@ class ApiController extends AbstractController
     */
     private $router;
 
+    /**
+    * @var EntityManagerInterface
+    */
+    private $entityManager;
 
-    public function __construct(RouterInterface $router)
+
+
+    public function __construct(RouterInterface $router, EntityManagerInterface $entityManager)
     {
         $this->router = $router;
+        $this->entityManager = $entityManager;
 
     }
 
@@ -81,7 +90,7 @@ class ApiController extends AbstractController
         ];
 
 
-        // Returnera JSON-svar
+
         return new JsonResponse($response);
     }
 
@@ -129,6 +138,54 @@ class ApiController extends AbstractController
         ];
 
         return $descriptions[$routeName] ?? 'Ingen beskrivning tillgänglig.';
+    }
+
+    #[Route("/api/library/books", name: "api_library_books", methods: ["GET"])]
+    public function getBooks(): JsonResponse
+    {
+
+        $bookRepository = $this->entityManager->getRepository(Book::class);
+        $books = $bookRepository->findAll();
+
+
+        $data = array_map(function ($book) {
+            return [
+                'id' => $book->getId(),
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'isbn' => $book->getIsbn(),
+
+            ];
+        }, $books);
+
+        // Returnera en JSON-respons
+        return new JsonResponse($data);
+    }
+
+    #[Route("/api/library/book/{isbn}", name: "api_library_book", methods: ["GET"])]
+    public function getBookByIsbn(string $isbn): JsonResponse
+    {
+
+
+        $bookRepository = $this->entityManager->getRepository(Book::class);
+        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
+        if ($book === null) {
+
+            return new JsonResponse(['error' => 'Book not found'], Response::HTTP_NOT_FOUND);
+        }
+
+
+
+        $data = [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'isbn' => $book->getIsbn(),
+        ];
+
+
+
+        return new JsonResponse($data);
     }
 
 }

@@ -1,0 +1,66 @@
+{% extends "base.html.twig" %}
+{% block title %}Scrutinizer{% endblock %}
+{% block body %}
+
+<div class="container-metrics">
+    <div class="main-content">
+        <div class="scrutinizer">
+            <h1>Scrutinizer</h1>
+            <p>
+                Scrutinizer är ett verktyg för kontinuerlig kodkvalitetsanalys och statisk kodgranskning. 
+                Scrutinizer analyserar din kod på djupet för att identifiera problem som kan påverka dess stabilitet, täckning, och kvalitet. Här är en sammanfattning av resultaten från Scrutinizer för vår kodbas:
+            </p>
+
+            <!-- Klickbara Scrutinizer-badges -->
+            <div class="scrutinizer-badges">
+                <a href="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/build.png?b=main">
+                    <img src="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/build.png?b=main" alt="Build Status">
+                </a>
+                <a href="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/coverage.png?b=main">
+                    <img src="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/coverage.png?b=main" alt="Coverage Status">
+                </a>
+                <a href="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/quality-score.png?b=main">
+                    <img src="https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/quality-score.png?b=main" alt="Quality Score">
+                </a>
+            </div>
+
+            <p>
+                <strong>Identifierade problem:</strong>
+                <ul>
+                    <li><strong>Build Status:</strong> Scrutinizer rapporterade att vår senaste build passerade testerna.</li>
+                    
+                    <li><strong>Coverage (Kodtäckning):</strong> Täckningen av våra tester ligger på <strong>21%</strong>, 
+                    vilket inte är optimalt. Detta innebär att vi inte har tillräckligt med tester för att säkerställa att vår kod är korrekt. 
+                    Detta kan leda till att vissa fel inte upptäcks tidigt i utvecklingsprocessen. Däremot så ligger <code>CardGame/ & Dice/</code> på 96.94% resp 100% vilket är mycket bra.</li>
+                    
+                    <li><strong>Quality Score:</strong> Vår kodkvalitetsscore ligger på <strong>10/10</strong>. Detta är generellt sett mycket bra.</li>
+                </ul>
+            </p>
+
+            
+
+            <p>
+                <strong>Förbättringspotential:</strong>
+                <ul>
+                    
+
+                    <li><strong>Kodtäckning:</strong> Att öka testtäckningen, 
+                    särskilt i klasser med låg täckning, kommer att förbättra kvaliteten testerna och minska risken för buggar i kritiska delar av koden.
+                    fokuset bör ligga på att lägga till enhetstester för <code>Controller</code>.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="side-bar">
+        <h2>Phpmetrics</h2>
+        <p>
+            Här kan du läsa vår analys av Phpmetrics och dess resultat för kodkvaliteten i vårt projekt.
+        </p>
+        <a href="{{ path('phpmetrics') }}">Till Phpmetrics-analysen</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

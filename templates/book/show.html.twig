@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>{{ book.title }}</h2>
-    <p>ISBN: {{ book.isbn }}</p>
-    <p>Författare: {{ book.author }}</p>
-    {% if book.imageUrl %}
-        <img src="{{ book.imageUrl }}" alt="Book image" style="max-width: 400px; max-height: 400px;">
-    {% endif %}
-    <a href="{{ path('book_list') }}">Tillbaka till listan</a>
+    <div class="container">
+        <h1>Bokinformation</h1>
+        <h2>{{ book.title }}</h2>
+        <p>ISBN: {{ book.isbn }}</p>
+        <p>Författare: {{ book.author }}</p>
+        {% if book.imageUrl %}
+            <img src="{{ book.imageUrl }}" alt="Book image" style="max-width: 400px; max-height: 400px;">
+        {% endif %}
+        <a href="{{ path('book_list') }}">Tillbaka till listan</a>
+    </div>
 {% endblock %}

@@ -44,5 +44,29 @@ class IndexTwig extends AbstractController
         ]);
     }
 
+    #[Route("/metrics", name: "metrics")]
+    public function metrics(): Response
+    {
+        return $this->render('metrics/metrics.html.twig');
+    }
+
+    #[Route("/scrutinizer", name: "scrutinizer")]
+    public function scrutinizer(): Response
+    {
+        return $this->render('metrics/scrutinizer.html.twig');
+    }
+
+    #[Route("/phpmetrics", name: "phpmetrics")]
+    public function phpmetrics(): Response
+    {
+        return $this->render('metrics/phpmetrics.html.twig');
+    }
+
+    #[Route("/improvements", name: "improvements")]
+    public function improvements(): Response
+    {
+        return $this->render('metrics/improvements.html.twig');
+    }
+
 
 }

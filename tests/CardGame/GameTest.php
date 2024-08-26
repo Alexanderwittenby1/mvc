@@ -104,7 +104,7 @@ class GameTest extends TestCase
         $game = new Game();
         $player = $game->getPlayer();
         $dealer = $game->getDealer();
-        $deck = $game->getDeck();
+
 
         // Dra kort åt spelaren
         $game->drawCardForPlayer();

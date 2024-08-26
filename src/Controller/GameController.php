@@ -35,9 +35,9 @@ class GameController extends AbstractController
             $game = new Game();
             $game->resetGame();
             $session->set('game', $game);
-        } else {
-            $game->startGame();
         }
+        $game->startGame();
+
 
         return $this->renderGame($game);
     }

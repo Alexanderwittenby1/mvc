@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics Analysis{% endblock %}
+
+{% block body %}
+<div class="container-metrics">
+    <div class="main-content">
+        <h1>Metrics Analysis</h1>
+        
+        <h2>Introduktion</h2>
+        <p>
+            I denna rapport analyseras kodkvalitet genom att använda olika mätvärden och verktyg. Kodkvalitet är avgörande för att säkerställa att vår kod är underhållbar, läsbar och effektiv.
+        </p><br>
+        
+        <h3>De Sex C:na</h3><br>
+        <ul>
+            <li><strong>Codestyle:</strong> Kodstil handlar om att följa enhetliga regler för hur koden skrivs, 
+            inklusive namngivning, indentering, 
+            blanksteg och placering av nyckelord. 
+            Att följa en konsekvent kodstil gör koden mer läsbar och lättare att underhålla</li><br>
+
+            <li><strong>Coverage:</strong> Testtäckning mäter hur stor del av koden som testas genom enhetstester eller integrationstester. 
+            Hög täckning är ett tecken på att kodens korrekthet är väl verifierad genom automatiserade tester, 
+            vilket minskar risken för buggar.</li><br>
+
+            <li><strong>Complexity:</strong> Komplexitet mäter hur komplicerad koden är att förstå och underhålla. 
+            En vanlig metod att mäta komplexitet är genom cyklomatisk komplexitet, som kvantifierar antalet oberoende sökvägar genom programkoden. 
+            Hög komplexitet gör koden svår att läsa och underhålla, och ökar risken för buggar.</li><br>
+
+            <li><strong>Cohesion:</strong> Sammanhållning syftar till hur väl en enskild modul eller klass fokuserar på ett enda ansvar. 
+            Hög sammanhållning innebär att alla metoder och funktioner i en modul är relaterade och bidrar till modulens specifika syfte, 
+            vilket gör koden mer begriplig och lättare att underhålla.</li><br>
+
+            <li><strong>Coupling:</strong> Koppling handlar om hur beroende olika klasser eller moduler är av varandra. 
+            Hög koppling gör koden svår att underhålla och förändringar i en modul kan få oväntade effekter i andra delar av systemet. 
+            Låg koppling är att föredra eftersom det gör koden mer flexibel och lättare att utöka.</li><br>
+
+            <li><strong>CRAP:</strong> CRAP är ett mått som kombinerar cyklomatisk komplexitet och testtäckning för att kvantifiera riskerna med att göra förändringar i koden. 
+            Det är utvecklat för att identifiera kod som både är komplex och dåligt testad, 
+            vilket gör den riskfylld att modifiera. 
+            CRAP-värdet växer om koden är komplex och har dålig testtäckning.</li><br>
+
+        </ul>
+        <p>
+            Att förstå och mäta dessa sex faktorer – kodstil, testtäckning, komplexitet, sammanhållning, koppling och CRAP – hjälper utvecklare att säkerställa att koden är både robust och underhållbar.
+        </p>
+    </div>
+    
+    <div class="side-bar">
+        <h2>Phpmetrics</h2>
+        <p>Läs mer om phpmetrics</p>
+        <a href="{{ path('phpmetrics') }}">Phpmetrics</a>
+        
+        <h2>Scrutinizer</h2>
+        <p>Läs mer om Scrutinizer</p>
+        <a href="{{ path('scrutinizer') }}">scrutinizer</a>
+        
+        <h2>Förbättringar</h2>
+        <p>Läs mer om potentiella förbättringar</p>
+        <a href="{{ path('improvements') }}">Förbättringar</a>
+    </div>
+</div>
+{% endblock %}

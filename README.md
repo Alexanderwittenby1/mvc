@@ -984,3 +984,11 @@ You might also find it useful to read up a bit more on Twig.
 <!--
 Exercise create a form (min, max) that posts to a route generating a random number between min and max.
 -->
+
+
+Badges
+------------------------------
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/build-status/main)

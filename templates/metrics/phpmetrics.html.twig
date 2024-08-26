@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+{% block title %}Phpmetrics{% endblock %}
+{% block body %}
+
+<div class="container-metrics">
+    <div class="main-content">
+        <div class="phpmetrics">
+            <h2>Phpmetrics</h2>
+            <p>
+                Phpmetrics är ett kraftfullt verktyg som analyserar kodens kvalitet genom olika mätvärden som komplexitet, sammanhållning, instabilitet och abstraktion. Här är en sammanfattning av resultaten för vår kodbas, tillsammans med identifierade flaskhalsar och förslag på förbättringar:
+            </p>
+            <a href="{{ asset('img/phpmetrics.png') }}">
+                <img src="{{ asset('img/phpmetrics.png') }}" alt="Phpmetrics report image" class="picture-about">
+            </a>
+            <p>
+                <strong>Flaskhalsar och svaga punkter:</strong>
+                <ul>
+                    <li><strong>Complexity (Komplexitet):</strong> Den cyklomatiska komplexiteten mäter antalet oberoende sökvägar genom koden. En hög komplexitet innebär att koden har många möjliga flöden och grenar, vilket gör den svårare att förstå, testa och underhålla.</li>
+                    
+                    <li><strong>Problemområde:</strong> Särskilt i <code>App\CardGame</code>-paketet observerades hög cyklomatisk komplexitet, med värden som översteg 9. Detta tyder på att metoderna i dessa klasser är för stora och behöver refaktoreras till mindre delar för att bli lättare att hantera.</li>
+                    
+                    <li><strong>Förbättringspotential:</strong> Genom att dela upp stora och komplexa metoder i mindre, mer specifika funktioner kan komplexiteten minskas. Detta leder till ökad läsbarhet och underhållbarhet samt gör det enklare att testa och modifiera koden vid framtida förändringar.</li>
+                    
+                    <li><strong>Instabilitet och Abstraktion:</strong> Phpmetrics identifierade att flera paket, såsom <code>App\Dice</code> och <code>App\Entity</code>, bryter mot principen om stabila abstraktioner (SAP). Dessa paket är både instabila och abstrakta, vilket innebär att de har många beroenden och samtidigt erbjuder abstrakta klasser som gör koden svår att förändra utan att orsaka oönskade effekter.</li>
+                    
+                    <a href="{{ asset('img/SAP.png') }}">
+                        <img src="{{ asset('img/SAP.png') }}" alt="Stable Abstractions Principle diagram" class="picture-about">
+                    </a>
+                    
+                    <li><strong>Förbättringspotential:</strong> Stabilisera dessa paket genom att minska deras beroenden eller göra dem mer konkreta, vilket minskar risken för oväntade konsekvenser vid framtida förändringar. Detta bidrar till bättre underhållbarhet och minskad risk för regressioner.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    
+    
+</div>
+
+{% endblock %}
