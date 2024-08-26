@@ -431,15 +431,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-GameController.html#method_stand"
         },                {
+            "fqsen": "\\App\\Controller\\GameController\u003A\u003AnewGame\u0028\u0029",
+            "name": "newGame",
+            "summary": "",
+            "url": "classes/App-Controller-GameController.html#method_newGame"
+        },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003ArenderGame\u0028\u0029",
             "name": "renderGame",
             "summary": "",
             "url": "classes/App-Controller-GameController.html#method_renderGame"
         },                {
-            "fqsen": "\\App\\Controller\\GameController\u003A\u003AnewGame\u0028\u0029",
-            "name": "newGame",
+            "fqsen": "\\App\\Controller\\GameController\u003A\u003AgetGameFromSession\u0028\u0029",
+            "name": "getGameFromSession",
             "summary": "",
-            "url": "classes/App-Controller-GameController.html#method_newGame"
+            "url": "classes/App-Controller-GameController.html#method_getGameFromSession"
+        },                {
+            "fqsen": "\\App\\Controller\\GameController\u003A\u003AsetGameToSession\u0028\u0029",
+            "name": "setGameToSession",
+            "summary": "",
+            "url": "classes/App-Controller-GameController.html#method_setGameToSession"
         },                {
             "fqsen": "\\App\\Controller\\IndexTwig",
             "name": "IndexTwig",

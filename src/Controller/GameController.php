@@ -25,66 +25,40 @@ class GameController extends AbstractController
     #[Route('/game/play', name: 'card_game_start', methods: ['GET', 'POST'])]
     public function play(Request $request): Response
     {
-        // Hämta sessionen
-        $session = $request->getSession();
-
-        // Hämta spelet från sessionen, eller skapa ett nytt om det inte finns
-        $game = $session->get('game');
-
-        if (!$game instanceof Game) {
-            $game = new Game();
-            $game->resetGame();
-            $session->set('game', $game);
-        }
+        $game = $this->getGameFromSession($request);
         $game->startGame();
-
-
         return $this->renderGame($game);
     }
-
-
 
     #[Route('/game/draw', name: 'draw_card', methods: ['POST'])]
     public function drawCard(Request $request): Response
     {
-
-        $session = $request->getSession();
-        $game = $session->get('game');
-
-        if (!$game instanceof Game) {
-            $game = new Game();
-            $session->set('game', $game);
-        }
-
+        $game = $this->getGameFromSession($request);
         $game->drawCardForPlayer();
 
         if ($game->getPlayer()->isBusted()) {
             $game->drawCardForDealer();
-            $session->set('game', $game);
             return $this->renderGame($game, $game->determineWinner());
         }
 
-        $session->set('game', $game);
         return $this->renderGame($game);
     }
 
     #[Route('/game/stand', name: 'stand', methods: ['POST'])]
     public function stand(Request $request): Response
     {
-
-        $session = $request->getSession();
-        $game = $session->get('game');
-
-        if (!$game instanceof Game) {
-            return $this->redirectToRoute('card_game');
-        }
-
+        $game = $this->getGameFromSession($request);
         $game->dealerTurn();
-
-        $session->set('player_hand', $game->getPlayer()->getHand());
-        $session->set('dealer_hand', $game->getDealer()->getHand());
-
         return $this->renderGame($game, $game->determineWinner());
+    }
+
+    #[Route('/game/new', name: 'new_game', methods: ['POST'])]
+    public function newGame(Request $request): Response
+    {
+        $game = new Game();
+        $game->resetGame();
+        $this->setGameToSession($request, $game);
+        return $this->renderGame($game);
     }
 
     private function renderGame(Game $game, string $gameResult = null): Response
@@ -98,16 +72,21 @@ class GameController extends AbstractController
         ]);
     }
 
-    #[Route('/game/new', name: 'new_game', methods: ['POST'])]
-    public function newGame(Request $request): Response
+    private function getGameFromSession(Request $request): Game
     {
-
         $session = $request->getSession();
-        $game = new Game();
-        $game->resetGame();  // Återställ spelet
+        $game = $session->get('game', new Game());
+        if (!$game instanceof Game) {
+            $game = new Game();
+            $game->resetGame();
+        }
         $session->set('game', $game);
-
-        return $this->renderGame($game);
+        return $game;
     }
 
+    private function setGameToSession(Request $request, Game $game): void
+    {
+        $session = $request->getSession();
+        $session->set('game', $game);
+    }
 }
