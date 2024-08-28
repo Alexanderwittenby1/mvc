@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Player{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Create New Player</h1>
+
+        {{ form_start(form) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.bank_account) }}
+
+            <button type="submit" class="btn btn-primary">Create Player</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

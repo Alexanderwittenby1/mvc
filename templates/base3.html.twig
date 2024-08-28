@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="{{ asset('img/glider.svg') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+
+
+
+<body>  
+    <nav class="blackjack-nav">
+        <ul class="blackjack-nav-list">
+            <li class="blackjack-nav-item"><a class="blackjack-nav-link" href="{{ path('blackjack_setup') }}">Starta Blackjack</a></li>
+            <li class="blackjack-nav-item"><a class="blackjack-nav-link" href="{{ path('blackjack_about') }}">Om Blackjack</a></li>
+            <li class="blackjack-nav-item"><a class="blackjack-nav-link" href="{{ path('proj_about') }}">Om projektet</a></li>
+        </ul>
+    </nav>
+
+
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer class="site-footer-project">
+        <div class="container">
+            <!-- Footer content here -->
+        </div>
+    </footer>
+</body>
+</html>
+

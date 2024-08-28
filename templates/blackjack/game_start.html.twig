@@ -1,0 +1,61 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}BlackJack{% endblock %}
+
+{% block main %}
+    <div class="blackjack-container">
+        <h1>Välkommen {{ player.name }}</h1>
+        <p>Saldo: {{ player.bankAccount }}</p>
+
+        <h2>Dealerns hand:</h2>
+        <div class="cards-container">
+            {% for card in dealerHand.cards %}
+                <div class="card {{ card.suit|lower }}">
+                    <div class="rank">{{ card.rank }}</div>
+                    <div class="suit"></div>
+                </div>
+            {% endfor %}
+        </div>
+        <p><strong>Dealerns poäng: {{ dealerScore }}</strong></p>
+
+        {% if playerScores|length > 1 %}
+        <h2>Dina händer:</h2>
+        {% else%}
+        <h2>Din hand:</h2>
+        {% endif %}
+        {% for hand in playerHands %}
+            <div class="hand">
+                <h3>Hand {{ loop.index }}:</h3>
+                <div class="cards-container">
+                    {% for card in hand.cards %}
+                        <div class="card {{ card.suit|lower }}">
+                            <div class="rank">{{ card.rank }}</div>
+                            <div class="suit"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <p><strong> Poäng: {{ playerScores[loop.index0] }}</strong></p>
+
+                {% if not gameOver %}
+                    <form action="{{ path('blackjack_hit', {'player_id': player.id, 'hand_id': hand.id}) }}" method="post">
+                        <button type="submit">Dra kort</button>
+                    </form>
+                    <form action="{{ path('blackjack_stand', {'player_id': player.id}) }}" method="post">
+                        <button type="submit">Stanna</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        {% if gameOver %}
+            <div class="game-over">
+                <h2 class="result-message"> {{ resultMessage }}</h2>
+                <div class="start-new-round">
+                    <form action="{{ path('blackjack_start_round', {'player_id': player.id}) }}" method="post">
+                        <button type="submit">Starta Ny Runda</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

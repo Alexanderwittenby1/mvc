@@ -1,0 +1,36 @@
+{# templates/proj/about.html.twig #}
+{% extends 'base3.html.twig' %}
+
+{% block title %}Om Projektet{% endblock %}
+
+{% block main %}
+    <h2>Om Projektet</h2>
+    <p>Projektet är en webbaserad version av det klassiska kortspelet Blackjack, byggt med hjälp av PHP och Symfony. Syftet med applikationen är att ge användare en enkel och engagerande upplevelse av Blackjack där de kan spela mot en datoriserad dealer.</p>
+    
+    <h3>Funktioner</h3>
+    <ul>
+        <li>Spelare kan ange sitt namn och sätta in pengar för att börja spela.</li>
+        <li>Applikationen tillåter spelare att välja mellan 1 till 3 händer att spela.</li>
+        <li>Spelare kan dra kort eller stanna när som helst under spelets gång.</li>
+        <li>Spelet fortsätter tills spelaren väljer att stanna eller går över poänggränsen 21.</li>
+        <li>Vinster beror på hur nära spelaren kommer till 21 utan att överskrida det.</li>
+    </ul>
+
+    <h3>Teknik och Verktyg</h3>
+    <p>Projektet är byggt med följande teknologier och verktyg:</p>
+    <ul>
+        <li><strong>PHP:</strong> Server-side skriptspråk som hanterar logiken i applikationen.</li>
+        <li><strong>Symfony:</strong> Ett kraftfullt PHP-ramverk som underlättar utveckling och hantering av webbaserade applikationer.</li>
+        <li><strong>Doctrine ORM:</strong> Ett objekt-relationellt mappningssystem som används för att hantera databasinteraktioner på ett objektorienterat sätt.</li>
+        <li><strong>Twig:</strong> En flexibel och säker templating-motor för PHP som används för att generera HTML-sidor.</li>
+    </ul>
+
+    <h3>Design och Användarupplevelse</h3>
+    <p>Designen av spelet är enkel och användarvänlig,
+    med en stilren layout som fokuserar på att göra spelupplevelsen så smidig som möjligt. 
+    Applikationen är responsiv och fungerar på både stationära och mobila enheter för att säkerställa en bra användarupplevelse oavsett plattform.</p>
+
+    
+
+    
+{% endblock %}

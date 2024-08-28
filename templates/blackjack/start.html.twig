@@ -1,0 +1,14 @@
+{# templates/blackjack/start.html.twig #}
+{% extends 'base3.html.twig' %}
+
+{% block title %}Start BlackJack{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Welcome, {{ player.name }}!</h1>
+        <p>Your bank account: {{ player.bankAccount }}</p>
+
+        <!-- Knappen för att starta spelet -->
+        <a href="{{ path('blackjack_game', { 'player_id': player.id }) }}" class="btn btn-primary">Start Game</a>
+    </div>
+{% endblock %}
