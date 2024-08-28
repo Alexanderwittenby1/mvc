@@ -836,21 +836,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Card.html#method_setRank"
         },                {
-            "fqsen": "\\App\\Entity\\Card\u003A\u003AgetHands\u0028\u0029",
-            "name": "getHands",
-            "summary": "",
-            "url": "classes/App-Entity-Card.html#method_getHands"
-        },                {
-            "fqsen": "\\App\\Entity\\Card\u003A\u003AaddHand\u0028\u0029",
-            "name": "addHand",
-            "summary": "",
-            "url": "classes/App-Entity-Card.html#method_addHand"
-        },                {
-            "fqsen": "\\App\\Entity\\Card\u003A\u003AremoveHand\u0028\u0029",
-            "name": "removeHand",
-            "summary": "",
-            "url": "classes/App-Entity-Card.html#method_removeHand"
-        },                {
             "fqsen": "\\App\\Entity\\Card\u003A\u003A\u0024id",
             "name": "id",
             "summary": "",
@@ -865,11 +850,6 @@ Search.appendIndex(
             "name": "rank",
             "summary": "",
             "url": "classes/App-Entity-Card.html#property_rank"
-        },                {
-            "fqsen": "\\App\\Entity\\Card\u003A\u003A\u0024hands",
-            "name": "hands",
-            "summary": "",
-            "url": "classes/App-Entity-Card.html#property_hands"
         },                {
             "fqsen": "\\App\\Entity\\Hand",
             "name": "Hand",
