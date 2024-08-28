@@ -61,8 +61,8 @@ npm install
 
 ### Konfigurera databasen
 
-```bash	
 Kör följande kommandon i konsolen för att skapa databasen och tabeller:
+```bash	
 php bin/console doctrine:migrations:migrate
 
 ```
