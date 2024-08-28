@@ -9,7 +9,7 @@ Badges
 
 
 
-# [Blacjack](https://github.com/Alexanderwittenby1/mvc)
+### Blackjack projekt
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Alexanderwittenby1/mvc/?branch=main)
@@ -87,6 +87,28 @@ composer phpunit
 composer phpstan
 composer phpmetrics
 ```
+
+
+## Granska dokumentationen & tester.
+
+För att komma åt dokumentationen och tester behöver vi starta servern
+
+```bash
+php -S localhost:8000 
+```
+Skillnaden här är -t public som vi inte har i vår server:start.
+
+### olika endpoints
+
+```bash
+http://localhost:8000/docs/api/index.html
+http://localhost:8000/docs/coverage/index.html
+http://localhost:8888/docs/metrics/index.html
+```
+
+
+
+
 
 
 
