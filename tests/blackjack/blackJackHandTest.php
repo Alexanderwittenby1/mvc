@@ -30,6 +30,39 @@ class blackJackHandTest extends TestCase
         $this->assertEquals($player, $hand->getPlayer());
     }
 
+
+    public function testGetCards() : void {
+        $hand = new Hand();
+        $this->assertEmpty($hand->getCards());
+    }
+
+
+    public function testAddCard() : void {
+        $hand = new Hand();
+        $card = new Card();
+        $hand->addCard($card);
+        $this->assertContains($card, $hand->getCards());
+    }
+
+
+    public function testRemoveCard() : void {
+        $hand = new Hand();
+        $card = new Card();
+        $hand->addCard($card);
+        $hand->removeCard($card);
+        $this->assertNotContains($card, $hand->getCards());
+    }
     
+
+    public function testGetIsStand() : void {
+        $hand = new Hand();
+        $this->assertFalse($hand->getIsStand());
+    }
+
+    public function testSetIsStand() : void {
+        $hand = new Hand();
+        $hand->setIsStand(true);
+        $this->assertTrue($hand->getIsStand());
+    }
 
 }

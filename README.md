@@ -17,16 +17,16 @@ Badges
 
 ## Om projektet
 
-Detta projekt syftar till att Det är byggt med hjälp av [teknologier, ramverk etc.] och är designat för att vara [t.ex. användarvänligt, kraftfullt, etc.].
-
-Projektet är uppdelat i olika moduler och innehåller följande komponenter:
-- **Webbplatsen**: En dynamisk webbplats byggd med [verktyg] som hanterar [specifik funktionalitet].
-- **API**: Ett API som tillhandahåller [beskriv kort vad API:t gör].
+Detta projekt är en implementation av ett Blackjack-spel med PHP, Symfony och Doctrine ORM. 
+Syftet med projektet är att skapa en webbapplikation där användare kan spela Blackjack mot en datoriserad dealer. 
+Applikationen erbjuder en komplett lösning för att spela spelet, inklusive hantering av spelhänder, kort och resultat.
 
 
 ### Funktioner
 
 - **Responsiv design**: Webbplatsen är designad för att fungera på alla enheter, inklusive mobiler, surfplattor och stationära datorer.
+- **Spelmekanik**: Applikationen implementerar Blackjack-spelmekaniken, inklusive korthantering, resultatberäkning och regler för att vinna eller förlora.
+
 
 
 ## Installation och Uppstart
@@ -98,17 +98,17 @@ php -S localhost:8000
 ```
 Skillnaden här är -t public som vi inte har i vår server:start.
 
-### olika endpoints
+Dokumentationen och tester finns på följande endpoints:
 
-```bash
-http://localhost:8000/docs/api/index.html
-http://localhost:8000/docs/coverage/index.html
-http://localhost:8888/docs/metrics/index.html
-```
 
+ - **API Dokumentation**: http://localhost:8000/docs/api/index.html
+ - **Kodtäckning**: http://localhost:8000/docs/coverage/index.html
+ - **Metrics**: http://localhost:8888/docs/metrics/index.html
 
 
 
+
+Denna README.md bör täcka allt som behövs för att få igång och förstå ditt projekt.
 
 
 

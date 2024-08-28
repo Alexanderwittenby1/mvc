@@ -12,39 +12,31 @@ use Doctrine\ORM\EntityManagerInterface;
 class BlackJackService
 {
     private $em;
+    private $cardProvider;
+    private $handManager;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, CardProvider $cardProvider, HandManager $handManager)
     {
         $this->em = $em;
+        $this->cardProvider = $cardProvider;
+        $this->handManager = $handManager;
     }
 
-    // src/Service/BlackJackService.php
     public function startNewRound(Players $player, int $numberOfHands): void
     {
-        // Rensa kort från tidigare rundor
         $playerHands = $this->em->getRepository(Hand::class)->findBy(['player' => $player]);
         $dealerHand = $this->em->getRepository(Hand::class)->findOneBy(['player' => null]);
 
-        // Ta bort gamla kort och händer
         foreach ($playerHands as $hand) {
-            foreach ($hand->getCards() as $card) {
-                $hand->removeCard($card);
-                $this->em->remove($card);
-            }
-            $this->em->remove($hand);
+            $this->handManager->clearHand($hand);
         }
 
         if ($dealerHand) {
-            foreach ($dealerHand->getCards() as $card) {
-                $dealerHand->removeCard($card);
-                $this->em->remove($card);
-            }
-            $this->em->remove($dealerHand);
+            $this->handManager->clearHand($dealerHand);
         }
 
         $this->em->flush();
 
-        // Skapa det angivna antalet händer för spelaren
         for ($i = 0; $i < $numberOfHands; $i++) {
             $playerHand = new Hand();
             $playerHand->setPlayer($player);
@@ -52,15 +44,14 @@ class BlackJackService
             $this->dealInitialCards($playerHand);
         }
 
-        // Skapa ny hand för dealern
         $dealerHand = new Hand();
-        $dealerHand->setPlayer(null); // null signifies dealer
+        $dealerHand->setPlayer(null); 
         $this->em->persist($dealerHand);
         $this->dealInitialCards($dealerHand);
 
         $this->em->flush();
     }
-
+    
     public function clearPreviousHands(Players $player): void
     {
         $hands = $this->em->getRepository(Hand::class)->findBy(['player' => $player]);
@@ -72,26 +63,24 @@ class BlackJackService
         $this->em->flush();
     }
 
-
     public function dealInitialCards(Hand $hand): void
     {
-        // Dra två kort till handen
-        $card1 = $this->drawCard();
-        $card2 = $this->drawCard();
+       
+        $card1 = $this->cardProvider->drawCard();
+        $card2 = $this->cardProvider->drawCard();
 
-        // Lägg till korten i handen
+        
         $hand->addCard($card1);
         $hand->addCard($card2);
 
-        // Spara korten i databasen
+        
         $this->em->persist($card1);
         $this->em->persist($card2);
     }
 
-
     public function hit(Hand $hand): void
     {
-        $card = $this->drawCard();
+        $card = $this->cardProvider->drawCard();
         $hand->addCard($card);
         $this->em->persist($hand);
         $this->em->flush();
@@ -132,21 +121,6 @@ class BlackJackService
 
         $this->em->persist($dealerHand);
         $this->em->flush();
-    }
-
-    private function drawCard(): Card
-    {
-        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-        $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-
-        $suit = $suits[array_rand($suits)];
-        $rank = $ranks[array_rand($ranks)];
-
-        $card = new Card();
-        $card->setSuit($suit);
-        $card->setRank($rank);
-
-        return $card;
     }
 
     public function calculateHandValue(Hand $hand): int
