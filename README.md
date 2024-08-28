@@ -1009,13 +1009,12 @@ Detta projekt syftar till att Det är byggt med hjälp av [teknologier, ramverk 
 Projektet är uppdelat i olika moduler och innehåller följande komponenter:
 - **Webbplatsen**: En dynamisk webbplats byggd med [verktyg] som hanterar [specifik funktionalitet].
 - **API**: Ett API som tillhandahåller [beskriv kort vad API:t gör].
-- **[Övriga komponenter]**
+
 
 ### Funktioner
 
 - **Responsiv design**: Webbplatsen är designad för att fungera på alla enheter, inklusive mobiler, surfplattor och stationära datorer.
-- **Hög prestanda**: Projektet är optimerat för snabb inläsning och smidigt användargränssnitt.
-- **Skalbar struktur**: Enkel att utöka och bygga vidare på i framtiden.
+
 
 ## Installation och Uppstart
 
@@ -1027,8 +1026,41 @@ Följ dessa steg för att klona och köra projektet på din lokala maskin:
 - Node.js med npm/yarn
 - MySQL eller annan databashanterare
 
-### Klona projektet
+### Klona projektet & installera
 
 ```bash
-git clone https://github.com/[dittusername]/[dittrepo].git
-cd [dittrepo]
+git clone https://github.com/Alexanderwittenby1/mvc
+cd [mvc]
+
+```
+
+### Composer
+
+```bash
+composer install
+```
+
+### NPM/Yarn
+```bash
+npm install
+```
+
+
+### Konfigurera databasen
+
+```bash	
+Kör följande kommandon i konsolen för att skapa databasen och tabeller:
+php bin/console doctrine:migrations:migrate
+
+```
+
+### Starta servern
+```bash
+php -S localhost:8000 -t public
+
+eller 
+
+symfony server:start
+```
+
+
