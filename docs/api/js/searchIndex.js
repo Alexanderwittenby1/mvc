@@ -1191,11 +1191,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Service-BlackJackService.html#method_dealerPlay"
         },                {
-            "fqsen": "\\App\\Service\\BlackJackService\u003A\u003AdrawCard\u0028\u0029",
-            "name": "drawCard",
-            "summary": "",
-            "url": "classes/App-Service-BlackJackService.html#method_drawCard"
-        },                {
             "fqsen": "\\App\\Service\\BlackJackService\u003A\u003AcalculateHandValue\u0028\u0029",
             "name": "calculateHandValue",
             "summary": "",
@@ -1210,6 +1205,46 @@ Search.appendIndex(
             "name": "em",
             "summary": "",
             "url": "classes/App-Service-BlackJackService.html#property_em"
+        },                {
+            "fqsen": "\\App\\Service\\BlackJackService\u003A\u003A\u0024cardProvider",
+            "name": "cardProvider",
+            "summary": "",
+            "url": "classes/App-Service-BlackJackService.html#property_cardProvider"
+        },                {
+            "fqsen": "\\App\\Service\\BlackJackService\u003A\u003A\u0024handManager",
+            "name": "handManager",
+            "summary": "",
+            "url": "classes/App-Service-BlackJackService.html#property_handManager"
+        },                {
+            "fqsen": "\\App\\Service\\CardProvider",
+            "name": "CardProvider",
+            "summary": "",
+            "url": "classes/App-Service-CardProvider.html"
+        },                {
+            "fqsen": "\\App\\Service\\CardProvider\u003A\u003AdrawCard\u0028\u0029",
+            "name": "drawCard",
+            "summary": "",
+            "url": "classes/App-Service-CardProvider.html#method_drawCard"
+        },                {
+            "fqsen": "\\App\\Service\\HandManager",
+            "name": "HandManager",
+            "summary": "",
+            "url": "classes/App-Service-HandManager.html"
+        },                {
+            "fqsen": "\\App\\Service\\HandManager\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Service-HandManager.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Service\\HandManager\u003A\u003AclearHand\u0028\u0029",
+            "name": "clearHand",
+            "summary": "",
+            "url": "classes/App-Service-HandManager.html#method_clearHand"
+        },                {
+            "fqsen": "\\App\\Service\\HandManager\u003A\u003A\u0024em",
+            "name": "em",
+            "summary": "",
+            "url": "classes/App-Service-HandManager.html#property_em"
         },                {
             "fqsen": "\\",
             "name": "\\",
